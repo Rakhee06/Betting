@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Nav, Navbar, NavItem, Jumbotron } from 'react-bootstrap';
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <div>
+            <div>
+                <Navbar>
+                    <Nav pullRight>
+                        <NavItem eventKey={1} href="/login">
+                            Login
+                        </NavItem>
+                    </Nav>
+                </Navbar>
+            </div>
+            <div>
+                <Jumbotron>
+                    <div className="text-center">
+                        <h2>Welcome to Betting Application!</h2>
+                        <p>An application based on decentralized network.</p>
+                        <p><a className="btn btn-success" href="https://ethereum.stackexchange.com/questions/383/what-is-a-dapp" role="button">Learn More</a></p>
+                        <p style={ { fontSize: '16px', color: '#aaa' } }>Currently at v4.15.0</p>
+                    </div>
+                </Jumbotron>
+            </div>
+        </div>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import './login.scss';
-import FadeTransition from "./fadeTransition";
+import '../styles/login.scss';
+import FadeTransition from '../styles/fadeTransition';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 
@@ -28,8 +28,8 @@ export default class MainLoginPage extends React.Component {
     }
 
     render() {
-        const chairperson_address = this.props.ch;
-        const user_name = this.props.username;
+        const chairperson_address = this.props.chairperson;
+        console.log('chairperson', chairperson_address);
         return (
             <div className="root-container">
                 <div className="box-controller">
@@ -74,7 +74,7 @@ export default class MainLoginPage extends React.Component {
                 </FadeTransition>
                 <FadeTransition isOpen={this.state.isChairpersonOpen} duration={50}>
                     <div className="box-container">
-                        <ChairpersonBox ch = {chairperson_address} contract = {this.props.contract} setAdminLogin={this.props.setAdminLogin}/>
+                        <ChairpersonBox chairperson = {chairperson_address} />
                     </div>
                 </FadeTransition>
             </div>
@@ -85,8 +85,9 @@ export default class MainLoginPage extends React.Component {
 class ChairpersonBox extends React.Component{
     constructor(props){
         super(props);
+        console.log(props.chairperson);
         this.state = {
-            ch : props.ch,
+            ch : props.chairperson,
             address : "",
             success : false
         }
@@ -111,12 +112,10 @@ class ChairpersonBox extends React.Component{
     }
 
     render(){
-        const contract = this.props.contract;
         const chairperson = this.state.ch;
 
         if (this.state.success){
-            this.props.setAdminLogin()
-            return (<Redirect to={{pathname:"/giveRight", state:{ch:chairperson}}}/>)
+            return (<Redirect to={{pathname:"/setNumber", state:{ch:chairperson}}}/>)
         }
         return(
             <div className="inner-container">
@@ -190,7 +189,7 @@ class LoginBox extends React.Component {
                     errors: "",
                     success : true
                 })
-            })
+            });
         console.log(this.state.username);
     }
 
