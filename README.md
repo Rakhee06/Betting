@@ -9,15 +9,35 @@ This project is a decentralized web application. It is assumed that the user of 
 To run this project locally before deployment, the user must have latest version of Node.js and npm module installed in their systems.
 
 ### Steps to Run the application
-* Create a new directory in your local file system. `mkdir betting`
-* Copy the given project zip files in that directory and extract the zip file.
-* There are 2 files in the directory `Betting Server` and `Betting Client`
-* Open the terminal or command prompt window in `Betting Server` directory and type `npm install`.
-* Repeat the above step for `Betting Client` as well.
-* The installation of all the dependencies takes approximately 10 minutes.
-* Once the dependencies are installed, go to `Betting Server` and type `npm start` to start the server.
-* Similarly, go to `Betting Client` and type `npm start` to start the client
-* The server boots up on `localhost:5000` and client boots up on `localhost:3000`. Therefore, if you have anything running on these ports, please close it.
+* Create a new directory in your local file system.
+```sh
+$ mkdir Betting
+```
+#### Client
+* Clone the repository.
+```sh
+$ git clone git@github.com:Rakhee06/Betting-Application-Client.git
+```
+* Follow the below steps.
+```sh
+$ cd Betting-Application-Client
+$ npm install
+$ npm start
+```
+* Above steps will start the server at `localhost:3000`
+
+#### Server
+* Clone the repository.
+```sh
+$ git clone git@github.com:Rakhee06/Betting-Application-Server.git
+```
+* Follow the below steps.
+```sh
+$ cd Betting-Application-Server
+$ npm install
+$ npm start
+```
+* Above steps will start the server at `localhost:5000`
 
 ### Steps to use the application
 #### To login
@@ -44,8 +64,8 @@ To run this project locally before deployment, the user must have latest version
 * Once the chairperson has ended the bet, you can click on the `Summary` button to view the summary of the betting.
 
 ### Steps to change the chairperson address
-We currently have not implemented a UI for changing the chairperson. We assume that chairperson himself has deployed the contract and hence, his address is hardcoded. However, in future versions of this application, we will provide access to people to start their own private betting game and make their address as the chairperson address. Therefore to change the chairperson’s address currently for testing purposes, please follow the steps below
-* Navigate to Betting Client/ Ethereum folder and type “node compile.js” to compile the contract.
+Currently have not implemented a UI for changing the chairperson. Assumption is that chairperson himself has deployed the contract and hence, his address is hardcoded. However, in future versions of this application, it provide access to people to start their own private betting game and make their address as the chairperson address. Therefore to change the chairperson’s address currently for testing purposes, please follow the steps below
+* Navigate to `Betting-Application-Client/ethereum` folder and type `node compile.js` to compile the contract.
 * Then type `node deploy.js` to deploy the contract.
-* Finally, copy the new contract address and paste it in `Betting Client/Ethereum/numberBet.js` in place of the old contract.
+* Finally, copy the new contract address and paste it in `Betting-Application-Client/ethereum/numberBet.js` in place of the old contract.
 * Now the chairperson will be the account with which you have deployed the contract.
