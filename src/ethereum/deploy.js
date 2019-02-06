@@ -3,8 +3,10 @@ const Web3 = require('web3');
 const compiledBet = require('./build/numberBet');
 
 const provider = new HDWalletProvider(
-    'legend camp novel noble pulse slab pumpkin foot unique dry shiver squeeze',
-    'https://rinkeby.infura.io/v3/51be615868a24a0497a195047a73aaf4'
+    //give access to account mnemonic
+    // provide your metamask account mnemonic
+    //link to RinkeBy network
+    // provide link to your infura network
 );
 
 const web3 = new Web3(provider);
